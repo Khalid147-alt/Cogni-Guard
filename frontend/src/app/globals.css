@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: radial-gradient(ellipse at top, #0f172a, #0a0a0a, #000000);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl;
+  }
+
+  .neon-glow {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+  }
+
+  .neon-glow-red {
+    filter: drop-shadow(0 0 5px rgba(248, 113, 113, 0.5));
+  }
+
+  .neon-glow-green {
+    filter: drop-shadow(0 0 5px rgba(74, 222, 128, 0.5));
+  }
+}
+
+/* Clerk Overrides */
+.cl-card {
+  @apply !backdrop-blur-xl !border !border-white/10 !shadow-2xl !bg-black/20;
+}
+
+.cl-headerTitle,
+.cl-headerSubtitle,
+.cl-socialButtonsIconButton,
+.cl-formFieldLabel,
+.cl-formFieldInput,
+.cl-footerActionText,
+.cl-footerActionLink {
+  @apply !text-white;
+}
+
+.cl-formFieldInput {
+  @apply !bg-white/5 !border-white/10;
+}
+
+.cl-submitButton {
+  @apply !bg-blue-600 !text-white;
+}
+
+.cl-submitButton:hover {
+  @apply !bg-blue-700;
+}
